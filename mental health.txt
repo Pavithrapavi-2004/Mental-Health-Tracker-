@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Tracker & Recommender</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mental Health Tracker & Recommender</h1>
+        <div class="tracker">
+            <h2>Tracker</h2>
+            <label for="mood">How are you feeling today?</label>
+            <select id="mood">
+                <option value="happy">Happy</option>
+                <option value="neutral">Neutral</option>
+                <option value="sad">Sad</option>
+                <option value="anxious">Anxious</option>
+                <option value="angry">Angry</option>
+            </select>
+            <button onclick="trackMood()">Track</button>
+        </div>
+        <div class="recommendations">
+            <h2>Recommendations</h2>
+            <p id="recommendation">Based on your mood, here are some recommendations:</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.tracker, .recommendations {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+// script.js
+function trackMood() {
+    var mood = document.getElementById('mood').value;
+    var recommendation = document.getElementById('recommendation');
+
+    switch (mood) {
+        case 'happy':
+            recommendation.innerText = "Great to hear that you're feeling happy! Some recommended activities: Go for a walk, meet a friend, practice gratitude.";
+            break;
+        case 'neutral':
+            recommendation.innerText = "Feeling neutral today? It's okay. Try some relaxation techniques like deep breathing or meditation.";
+            break;
+        case 'sad':
+            recommendation.innerText = "If you're feeling sad, remember to be kind to yourself. Consider reaching out to a friend or loved one for support.";
+            break;
+        case 'anxious':
+            recommendation.innerText = "Feeling anxious can be tough, but you're not alone. Try some calming exercises like mindfulness or journaling.";
+            break;
+        case 'angry':
+            recommendation.innerText = "Feeling angry? Take a moment to breathe deeply and consider what's causing your anger. It's okay to step away from the situation.";
+            break;
+        default:
+            recommendation.innerText = "Invalid mood selection.";
+    }
+}
